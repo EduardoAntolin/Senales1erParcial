@@ -75,6 +75,16 @@ namespace GraficadorSeñales
             return new Point((x - tiempoInicial) * scrGrafica.Width, (- 1 * (y * ( ( ( scrGrafica.Height / 2.0 ) ) - 25 ) / amplitudMaxima ) ) + ( scrGrafica.Height / 2f ) );
         }
 
-  
+        private void cbTipoSeñal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            panelConfiguracion.Children.Clear();
+            switch (cbTipoSeñal.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1: panelConfiguracion.Children.Add(new ConfiguracionSeñalSenoidal());
+                    break;
+            }
+        }
     }
 }
